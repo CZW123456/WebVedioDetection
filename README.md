@@ -35,10 +35,9 @@ Argument "ip" is the IP address where the service is launched.
 + Uploaded vedios of any resolution can be processed by the server since [Yolo v3](https://github.com/eriklindernoren/PyTorch-YOLOv3) is a fully-convolution model without fully-connected layers.
 + We provide some example vedios in the /samples directory with which user can test the service.
 + I have found **significant acceleration** when the pipeline is implemented in a **batch processing** way. Take the vedio in "/sample/1603117268720758.mp4" as example, almost **2x acceleration** is achivable compared with frame-by-frame processing fashion with single NVIDIA 1080Ti GPU.
-
++ Due to my limited computing resource (single NVIDAI 1080 Ti), I have found that split the video into seperate chunks and process each chunk individually using multiprocessing toolkit even degrades the runtime performance since for each subprocess the available batch size is much smaller (2 or 4 if I attemp to start 4 subprocess). What's more, as far as I known, Pytorch does not support put the model into a shared memory yet and it seems that each subprocess must own its model object, leading to unnessary memory comsumption. **Therefore, with the current hardware environment, maybe a single process with a larger batch size is a better option**.
 
 **To Do**
-+ Using **multiprocessing toolkit** in Pytorch to slide the uploaded video into multiple chunks and process each chunk in parallel.
 + Add some audio signal processing features like denoising, fading-in, fading-out etc.
 
 **Reference**
