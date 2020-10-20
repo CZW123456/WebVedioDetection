@@ -13,9 +13,9 @@ detection based on Yolo v3. The pre-trained weights for [Yolo v3](https://github
 > bash download_weights.sh
 
 **How to use** 
-> python app.py --ip xxxx
+> python app.py --ip xxxx --port xxxx
 >
-> Open the web broswer and type in "http://0.0.0.0:1111" to enter the homepage.
+> Open the web broswer and type in the address, say "http://0.0.0.0:1111" to enter the homepage.
 >
 > Follow the instruction presented in the homepage
 
@@ -29,8 +29,9 @@ Argument "ip" is the IP address where the service is launched.
 + I also provide the download feature which the user can optionally choose to download the processed vedio.
 
 **Note**
-+ Pre-trained weights for Yolo v3 is utilized. Weights download script is in the /weights directory. 
-+ Uploaded vedios of any resolution can be processed by the server since Yolo v3 is a fully-convolution model without fully-connected layers.
++ Pre-trained weights for [Yolo v3](https://github.com/eriklindernoren/PyTorch-YOLOv3) is utilized. Weights download script is in the /weights directory. 
++ Web service is based on [Flask](https://github.com/technext/Flusk), a light-weighted web framework for Python.
++ Uploaded vedios of any resolution can be processed by the server since [Yolo v3](https://github.com/eriklindernoren/PyTorch-YOLOv3) is a fully-convolution model without fully-connected layers.
 + We provide some example vedios in the /samples directory with which user can test the service.
 + I have found **significant acceleration** when the pipeline is implemented in a **batch processing** way. Take the vedio in "/sample/1603117268720758.mp4" as example, almost **2x acceleration** is achivable compared with frame-by-frame processing fashion with single NVIDIA 1080Ti GPU.
 
