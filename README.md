@@ -31,6 +31,7 @@ Argument "ip" is the IP address where the service is launched.
 **Note**
 + Pre-trained weights for [Yolo v3](https://github.com/eriklindernoren/PyTorch-YOLOv3) is utilized. Weights download script is in the /weights directory. 
 + Web service is based on [Flask](https://github.com/technext/Flusk), a light-weighted web framework for Python.
++ The uploaded video is processed in a **byte stream** to reduce memory overhead. 
 + Uploaded vedios of any resolution can be processed by the server since [Yolo v3](https://github.com/eriklindernoren/PyTorch-YOLOv3) is a fully-convolution model without fully-connected layers.
 + We provide some example vedios in the /samples directory with which user can test the service.
 + I have found **significant acceleration** when the pipeline is implemented in a **batch processing** way. Take the vedio in "/sample/1603117268720758.mp4" as example, almost **2x acceleration** is achivable compared with frame-by-frame processing fashion with single NVIDIA 1080Ti GPU.
