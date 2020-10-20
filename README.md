@@ -1,10 +1,10 @@
 # WebVedieoDetection
 
 A video object detection project that takes the video which is uploaded by the user and does object
-detection based on Yolo v3. The pre-trained weights for [Yolo v3](https://github.com/eriklindernoren/PyTorch-YOLOv3) is utilized
+detection based on [Yolo v3](https://github.com/eriklindernoren/PyTorch-YOLOv3).
 
 **How to install**
-> git clone git@github.com:CZW123456/WebVedieoDetector.git
+> git clone git@github.com:CZW123456/WebVedioDetection.git
 >
 > pip install -r requirement.txt
 > 

@@ -64,3 +64,7 @@ wcwidth==0.2.5
 webencodings==0.5.1
 Werkzeug==1.0.1
 widgetsnbextension==3.5.1
+pydub==0.24.1
+torch==1.4.0
+torch-vision==0.1.6
+opencv-python==4.3.0.36

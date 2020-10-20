@@ -39,26 +39,26 @@
                     <div>
                         <h5>About this project</h5>
                         A video object detection project that takes the video which is uploaded by the user and does object
-                        detection based on <a href="https://github.com/eriklindernoren/PyTorch-YOLOv3">Yolo v3</a>. The pre-trained weights for Yolo v3 is utilized<br><br>
+                        detection based on <a href="https://github.com/eriklindernoren/PyTorch-YOLOv3">Yolo v3</a>. The pre-trained weights for <a href="https://github.com/eriklindernoren/PyTorch-YOLOv3">Yolo v3</a> is utilized.<br><br>
                         <h5>How to use</h5>
                         Upload a video file selecting in the file browser and click the "Upload" button.
                         The video will be uploaded to the server and a new web page will be presented. In the new page, two options
                         are prepared for the user——you can either start the vedio detection or selected another vedio of interest. Once
                         you selected to start the processing, the server will run object detection using <a href="https://github.com/eriklindernoren/PyTorch-YOLOv3">Yolo v3</a> model. Hopefully
                         this procedure will not cost you too much time if the vedio size is moderate. The original vedio and the processed vedio will
-                        be shown in the website and you can view the result then.<br><br>
+                        be shown in the website and you can view the results then.<br><br>
                         <h5>How it works</h5>
                         <ul>
-                            <li>Once you upload a video file, it extract the raw vedio stream in the uploaded vedio using
+                            <li>Once you upload a video file, it extracts the raw vedio stream in the uploaded vedio using
                                 <strong><a href="https://kkroening.github.io/ffmpeg-python/">ffmpeg-python</a></strong>,
                                 which is a Python ffmpeg wrapper.
                             </li>
                             <li>After getting some meta information of the vedio, it opens an <strong>Video Stream</strong> where one can extract arbitrary
-                            bytes from the stream. To speed up the process, instead of processing a single image each time, we extract a batch of frames and
-                                perform object detection on the extracted frames each time to exploit all computing power of the backhaul GPUs and reduce computing
+                            bytes from the stream. To speed up the process, instead of processing a single image each time, we <strong>extract a batch of frames and
+                                    perform object detection on the batch of frames</strong> to exploit all computing power of the backhaul GPUs and reduce computing
                             latency.</li>
-                            <li>We also extract the audio of the uploaded vedio by using <a href="http://pydub.com/">Pydub</a> which is a python audio processing library</li>
-                            <li>You can download the processed vedio</li>
+                            <li>We also extract the audio of the uploaded vedio by using <a href="http://pydub.com/">Pydub</a> which is a python audio processing library.</li>
+                            <li>You can download the processed vedio.</li>
                         </ul>
                         <h5>Note</h5>
                         <ul>
@@ -67,12 +67,12 @@
                             <li> The vedio coding scheme for the uploaded vedio must be <strong>H.264</strong> otherwise the uploaded vedio may not be successfully presented in the browser.
                             </li>
                         </ul>
-                        <h5>ToDo</h5>
-                        <ul>
-                            <li> Multi-threading processing combined with batch processsing to further acclerate the procedure</li>
-                            <li> Fine tune the object detection model in the collected data to yield better performance.</li>
-                            <li> Add more audio processing feature in the project such as audio enhancement or audio recognition.</li>
-                        </ul>
+{#                        <h5>ToDo</h5>#}
+{#                        <ul>#}
+{#                            <li> Multi-threading processing combined with batch processsing to further acclerate the procedure</li>#}
+{#                            <li> Fine tune the object detection model in the collected data to yield better performance.</li>#}
+{#                            <li> Add more audio processing feature in the project such as audio enhancement or audio recognition.</li>#}
+{#                        </ul>#}
                     </div>
                 </div>
             </div>
