@@ -36,5 +36,5 @@ Argument "ip" is the IP address where the service is launched.
 
 
 **To Do**
-+ Using multiprocessing toolkit in Pytorch to slide the uploaded video into multiple chunks and process each chunk in parallel.
++ Using **multiprocessing toolkit** in Pytorch to slide the uploaded video into multiple chunks and process each chunk in parallel.
 + Add some audio signal processing features like denoising, fading-in, fading-out etc.
