@@ -10,6 +10,7 @@ import subprocess
 from pydub import AudioSegment
 import ffmpeg
 import torch.multiprocessing as mp
+import argparse
 
 
 app = Flask(__name__, static_folder='static')
@@ -32,9 +33,9 @@ nms_thres = 0.4
 batch_size = 1
 img_size = 416
 
-# Batch size in processing incoming video stream
-num_processor = mp.cpu_count()
-num_process = num_processor // 2
+# # Batch size in processing incoming video stream
+# num_processor = mp.cpu_count()
+# num_process = num_processor // 2
 
 # Get actual number of video frames, cv2.CAP_PROP_FRAME_COUNT may be inaccurate and lead to some tricky problems
 video = cv2.VideoCapture(UPLOADED_BASE)
@@ -183,6 +184,10 @@ def zipdir(path, ziph):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--ip", type=str, default="0.0.0.0")
+    parser.add_argument("--port", type=int, default=1111)
+    args = parser.parse_args()
     ip = "0.0.0.0"
     # ip = '162.105.85.250'
-    app.run(host=ip, port=1111, debug=True)
+    app.run(host=args.ip, port=args.port, debug=True)

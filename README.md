@@ -12,9 +12,7 @@ detection based on Yolo v3. The pre-trained weights for Yolo v3 is utilized
 >
 > bash download_weights.sh
 
-**How to use**
-> cd WebVedieoDetector
-> 
+**How to use** 
 > python app.py --ip xxxx
 >
 > Open the web broswer and type in "http://0.0.0.0:1111" to enter the homepage.
