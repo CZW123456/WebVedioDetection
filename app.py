@@ -186,6 +186,4 @@ if __name__ == '__main__':
     parser.add_argument("--ip", type=str, default="0.0.0.0")
     parser.add_argument("--port", type=int, default=1111)
     args = parser.parse_args()
-    ip = "0.0.0.0"
-    # ip = '162.105.85.250'
     app.run(host=args.ip, port=args.port, debug=True)
