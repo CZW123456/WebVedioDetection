@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/dashboard/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%
+        }
+
+        #loading {
+            display: none;
+            /* background: url('../static/images/loading.gif') no-repeat; */
+            /* background-color: black; */
+            cursor: wait;
+            height: 300px;
+            width: 300px;
+            margin-top: 10%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .loading_info {
+            text-align: center;
+        }
+
+        #upload_video {
+            width: 100%;
+            height: 100%;
+            border: 4px #fff;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        form p {
+            /* width: 100%; */
+            /* height: 100%; */
+            text-align: center;
+            line-height: 170px;
+            color: #ffffff;
+            font-family: Arial;
+        }
+
+        form input {
+            position: absolute;
+            width: 100%;
+            height: 200px;
+            opacity: 0;
+        }
+
+        form button {
+            margin: 0;
+            color: #fff;
+            background: #16a085;
+            border: none;
+            width: 100%;
+            height: 35px;
+            border-radius: 4px;
+            border-bottom: 4px solid #117A60;
+            transition: all .2s ease;
+        }
+
+        form button:hover {
+            background: #149174;
+            color: #0C5645;
+        }
+
+        form button:active {
+            border: 0;
+        }
+
+        ul.btn-group {
+            width: 100%;
+            list-style-type: none;
+            /* Remove bullets */
+            padding: 0;
+            /* Remove padding */
+            margin: 0;
+            /* Remove margins */
+        }
+
+        ul.btn-group li {
+            width: 50%;
+        }
+
+        ul.btn-group button {
+            width: 100%;
+            color: #fff;
+            background: #16a085;
+            border: none;
+            height: 35px;
+            border-radius: 4px;
+            border-bottom: 4px solid #117A60;
+            transition: all .2s ease;
+        }
+
+        button:hover {
+            background: #149174;
+            color: #0C5645;
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+    {% block content %}
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

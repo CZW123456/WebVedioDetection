@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container-fluid" id="content">
+    <div class="row">
+
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <br>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">
+                            <span data-feather="home"></span>
+                            TOP <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/boblef/auto_transcript" target="_blank">
+                            Code on Github
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div>
+                <form action="/process" method="POST" enctype="multipart/form-data">
+                    <ul class="btn-group">
+                        <li>
+                            <button type="submit" name="user_request" value="processing_singleprocess_single">Single-Process Processing(Single)</button>
+                        </li>
+                        <li>
+                            <button type="submit" name="user_request" value="processing_singleprocess_batch">Single-Process Processing(Batch)</button>
+                        </li>
+                        <li>
+                            <button type="submit" name="user_request" value="top">Choose another file</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div>
+                <br>
+                {% if result_status %}
+                <h4>Original Vedio</h4>
+                    <div class="mb-2 mb-md-0">
+                        <video width="100%" height="300" controls>
+                            <source src={{ url_for("static", filename="uploaded/tmp.mp4") }} type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <h4>Processed Vedio</h4>
+                    <div class="mb-2 mb-md-1">
+                        <video width="100%" height="300" controls>
+                            <source src={{ url_for("static", filename="detected/video_detected_with_audio.mp4") }} type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                <h4>Download</h4>
+                <p>You can download the processed vedio</p>
+                <form action="/download" method="GET" enctype="multipart/form-data">
+                    <button type="submit" name="download" value="true">Download Processed Video</button>
+                </form>
+                {% else %}
+                <h4>Information</h4>
+                <p>
+                    <li>Click "Single-Process Processing", and the server will use single process for processing the uploaded vedio.</li>
+                    <li>Click "Multi-Process Processing" and the server will use multiple processes for processing the uploaded vedio. Each
+                    process will be in charge of a chunk of frames.</li>
+                    <li>Click "Choose another file" if the uploaded vedio is not the one you prefer to process.</li>
+                </p>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+</div>
+<script type="text/javascript">//<![CDATA[ 
+    $(document).ready(function () {
+        $('form input').change(function () {
+            $('form p').text(this.files.length + " file(s) selected");
+        });
+    });
+//]]></script>
+{% endblock %}

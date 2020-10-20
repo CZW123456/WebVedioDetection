@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container-fluid" id="content">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <br>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">
+                            <span data-feather="home"></span>
+                            TOP <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/boblef/auto_transcript" target="_blank">
+                            Code on Github
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+            <div class="mb-2 mb-md-0">
+                <div class="mr-2" id="upload_video">
+                    <form action="/upload_file" method="POST" class="upload_file" enctype="multipart/form-data">
+
+                        <input type="file" multiple class="upload_file" name="file" accept="video/*, audio/*">
+                        <p class="upload_file">Drag your files here or click in this area.</p>
+                        <button type="submit" class="upload_file">Upload</button>
+                    </form>
+                </div>
+                <div class="mr-2" id="intro">
+                    <br>
+                    <div>
+                        <h5>About this project</h5>
+                        A video object detection project that takes the video which is uploaded by the user and does object
+                        detection based on Yolo v3. The pre-trained weights for Yolo v3 is utilized<br><br>
+                        <h5>How to use</h5>
+                        Upload a video file selecting in the file browser and click the "Upload" button.
+                        The video will be uploaded to the server and a new web page will be presented. In the new page, two options
+                        are prepared for the user——you can either start the vedio detection or selected another vedio of interest. Once
+                        you selected to start the processing, the server will run object detection using Yolo v3 model. Hopefully
+                        this procedure will not cost you too much time if the vedio size is moderate. The original vedio and the processed vedio will
+                        be shown in the website and you can view the result then.<br><br>
+                        <h5>How it works</h5>
+                        <ul>
+                            <li>Once you upload a video file (MP4, MOV), it extract the raw vedio stream in the uploaded vedio using
+                                <strong><a href="https://kkroening.github.io/ffmpeg-python/">ffmpeg-python</a></strong>,
+                                which is a Python ffmpeg wrapper.
+                            </li>
+                            <li>After getting some meta information of the vedio, it opens an <strong>Video Stream</strong> where one can extract arbitrary
+                            bytes from the stream. To speed up the process, instead of processing a single image each time, we extract a batch of frames and
+                                perform object detection on the extracted frames each time to harness all computing power of the backhaul GPUs and reduce computing
+                            latency.</li>
+                            <li>We also extract the audio of the uploaded vedio by using Pydub which is a python audio processing library</li>
+                            <li>You can download the processed vedio</li>
+                        </ul>
+                        <h5>Note</h5>
+                        <ul>
+                            <li> We used the pre-trained weights for Yolo v3, the weights we utilized can be found on ... .
+                            </li>
+                            <li> The vedio coding scheme for the uploaded vedio must be <strong>H.264</strong> otherwise the uploaded vedio may not be successfully presented in the browser.
+                            </li>
+                        </ul>
+                        <h5>ToDo</h5>
+                        <ul>
+                            <li> Multi-threading processing combined with batch processsing to further acclerate the procedure</li>
+                            <li> Fine tune the object detection model in the collected data to yield better performance.</li>
+                            <li> Add more audio processing feature in the project such as audio enhancement or audio recognition.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </main>
+    </div>
+</div>
+<script type="text/javascript">//<![CDATA[ 
+    $(document).ready(function () {
+        $('form input').change(function () {
+            $('form p').text(this.files.length + " file(s) selected");
+        });
+    });
+//]]></script>
+{% endblock %}
