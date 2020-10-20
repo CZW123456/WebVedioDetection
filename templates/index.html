@@ -15,7 +15,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/boblef/auto_transcript" target="_blank">
+                        <a class="nav-link" href="https://github.com/CZW123456/WebVedioDetection" target="_blank">
                             Code on Github
                         </a>
                     </li>
@@ -39,30 +39,30 @@
                     <div>
                         <h5>About this project</h5>
                         A video object detection project that takes the video which is uploaded by the user and does object
-                        detection based on Yolo v3. The pre-trained weights for Yolo v3 is utilized<br><br>
+                        detection based on <a href="https://github.com/eriklindernoren/PyTorch-YOLOv3">Yolo v3</a>. The pre-trained weights for Yolo v3 is utilized<br><br>
                         <h5>How to use</h5>
                         Upload a video file selecting in the file browser and click the "Upload" button.
                         The video will be uploaded to the server and a new web page will be presented. In the new page, two options
                         are prepared for the user——you can either start the vedio detection or selected another vedio of interest. Once
-                        you selected to start the processing, the server will run object detection using Yolo v3 model. Hopefully
+                        you selected to start the processing, the server will run object detection using <a href="https://github.com/eriklindernoren/PyTorch-YOLOv3">Yolo v3</a> model. Hopefully
                         this procedure will not cost you too much time if the vedio size is moderate. The original vedio and the processed vedio will
                         be shown in the website and you can view the result then.<br><br>
                         <h5>How it works</h5>
                         <ul>
-                            <li>Once you upload a video file (MP4, MOV), it extract the raw vedio stream in the uploaded vedio using
+                            <li>Once you upload a video file, it extract the raw vedio stream in the uploaded vedio using
                                 <strong><a href="https://kkroening.github.io/ffmpeg-python/">ffmpeg-python</a></strong>,
                                 which is a Python ffmpeg wrapper.
                             </li>
                             <li>After getting some meta information of the vedio, it opens an <strong>Video Stream</strong> where one can extract arbitrary
                             bytes from the stream. To speed up the process, instead of processing a single image each time, we extract a batch of frames and
-                                perform object detection on the extracted frames each time to harness all computing power of the backhaul GPUs and reduce computing
+                                perform object detection on the extracted frames each time to exploit all computing power of the backhaul GPUs and reduce computing
                             latency.</li>
-                            <li>We also extract the audio of the uploaded vedio by using Pydub which is a python audio processing library</li>
+                            <li>We also extract the audio of the uploaded vedio by using <a href="http://pydub.com/">Pydub</a> which is a python audio processing library</li>
                             <li>You can download the processed vedio</li>
                         </ul>
                         <h5>Note</h5>
                         <ul>
-                            <li> We used the pre-trained weights for Yolo v3, the weights we utilized can be found on ... .
+                            <li> We used the pre-trained weights for Yolo v3, the user should download them first using the script we provide in the <a href="https://github.com/CZW123456/WebVedioDetection" >repo</a>.
                             </li>
                             <li> The vedio coding scheme for the uploaded vedio must be <strong>H.264</strong> otherwise the uploaded vedio may not be successfully presented in the browser.
                             </li>
