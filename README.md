@@ -29,8 +29,7 @@ Argument "ip" is the IP address where the service is launched.
 + I also provide the download feature which the user can optionally choose to download the processed vedio.
 
 **Note**
-+ Pre-trained weights for Yolo v3 is utilized, which is provided in "weights" directory for user convenience.
-+ Batch processing instead of frame-by-frame processing is exploited to accelerate the process 
++ Pre-trained weights for Yolo v3 is utilized. Weights download script is in the /weights directory. 
 + Uploaded vedios of any resolution can be processed by the server since Yolo v3 is a fully-convolution model without fully-connected layers.
 + We provide some example vedios in the "data" directory with which user can test the service.
 
