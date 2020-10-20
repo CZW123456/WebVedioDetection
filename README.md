@@ -1,4 +1,4 @@
-# WebVedieoDetector
+# WebVedieoDetection
 
 A video object detection project that takes the video which is uploaded by the user and does object
 detection based on Yolo v3. The pre-trained weights for Yolo v3 is utilized
@@ -29,13 +29,12 @@ Argument "ip" is the IP address where the service is launched.
 + I also provide the download feature which the user can optionally choose to download the processed vedio.
 
 **Note**
-+ Pre-trained weights for Yolo v3 is utilized, which is provided in "weights" directory for user convenience.
-+ Batch processing instead of frame-by-frame processing is exploited to accelerate the process 
++ Pre-trained weights for Yolo v3 is utilized. Weights download script is in the /weights directory. 
 + Uploaded vedios of any resolution can be processed by the server since Yolo v3 is a fully-convolution model without fully-connected layers.
-+ We provide some example vedios in the "data" directory with which user can test the service.
++ We provide some example vedios in the /samples directory with which user can test the service.
++ I have found **significant acceleration** when the pipeline is implemented in a **batch processing** way. Take the vedio in "/sample/1603117268720758.mp4" as example, almost **2x acceleration** is achivable compared with frame-by-frame processing fashion with single NVIDIA 1080Ti GPU.
+
 
 **To Do**
 + Using multiprocessing toolkit in Pytorch to slide the uploaded video into multiple chunks and process each chunk in parallel.
 + Add some audio signal processing features like denoising, fading-in, fading-out etc.
-
-

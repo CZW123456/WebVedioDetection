@@ -67,7 +67,6 @@ classes = load_classes(class_path)
 
 # Colors of BBox for different classes
 COLORS = np.random.uniform(255, 125, size=(len(classes), 3))
-
 Tensor = torch.cuda.FloatTensor if torch.cuda.is_available() else torch.FloatTensor
 
 
